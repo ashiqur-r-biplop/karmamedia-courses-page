@@ -7,12 +7,12 @@ const downIcon = document.querySelector(".fa-caret-down");
 checkbox.addEventListener("change", function () {
   if (checkbox.checked) {
     console.log(checkbox.checked);
-    upIcon.style.display = "block";
-    downIcon.style.display = "none";
-    coursesList.style.display = "none";
-  } else {
     upIcon.style.display = "none";
     downIcon.style.display = "block";
+    coursesList.style.display = "none";
+  } else {
+    upIcon.style.display = "block";
+    downIcon.style.display = "none";
     coursesList.style.display = "block";
   }
 });
@@ -20,10 +20,10 @@ checkbox.addEventListener("change", function () {
 if (checkbox.checked) {
   coursesList.style.display = "block";
 
-  upIcon.style.display = "block";
-  downIcon.style.display = "none";
-} else {
   upIcon.style.display = "none";
   downIcon.style.display = "block";
-  downIcon.style.display = "block";
+} else {
+  upIcon.style.display = "block";
+  downIcon.style.display = "none";
+  coursesList.style.display = "block";
 }
