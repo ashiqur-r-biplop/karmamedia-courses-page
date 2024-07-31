@@ -37,3 +37,13 @@ function playVideo(element) {
 
   element.classList.add("active");
 }
+
+// open video script
+const videoLink = {
+  Course: {
+    Introduction: {
+      link: "https://youtu.be/rwhPoLseH1g?si=50_dmmgt8jSFSLoL",
+    },
+    HowToGetTheMostValue: "https://youtu.be/wyXa-ZIF1zA?si=ligfXL8n48yST-dL",
+  },
+};

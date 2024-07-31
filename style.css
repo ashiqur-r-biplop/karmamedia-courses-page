@@ -98,7 +98,6 @@
 }
 
 .courses .courses-list p:hover {
-    padding-left: 13px;
     transition: all .3s ease-in-out;
 }
 
