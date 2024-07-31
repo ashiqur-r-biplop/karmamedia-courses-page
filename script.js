@@ -35,8 +35,5 @@ function playVideo(element) {
     course.classList.remove("active");
   });
 
-  // Add the active class to the clicked course element
   element.classList.add("active");
-
-  // Additional code to play the video can go here
 }
