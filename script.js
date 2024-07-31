@@ -27,16 +27,43 @@ document.addEventListener("DOMContentLoaded", function () {
     coursesList.style.display = "block";
   }
 });
-
+const videoLink = {
+  course: {
+    introduction:
+      "https://www.youtube.com/embed/usTDm-ZYOBo?si=4ZrCkjCJTumZ92_z",
+    howToGetTheMostValue:
+      "https://www.youtube.com/watch?v=usTDm-ZYOBo&list=RDRqwsdR1XSiU&index=3",
+  },
+  Module1: {
+    introduction:
+      "https://www.youtube.com/embed/usTDm-ZYOBo?si=4ZrCkjCJTumZ92_z",
+    lesson1:
+      "https://www.youtube.com/watch?v=usTDm-ZYOBo&list=RDRqwsdR1XSiU&index=3",
+    lesson2:
+      "https://www.youtube.com/watch?v=usTDm-ZYOBo&list=RDRqwsdR1XSiU&index=3",
+    lesson3:
+      "https://www.youtube.com/watch?v=usTDm-ZYOBo&list=RDRqwsdR1XSiU&index=3",
+    lesson4:
+      "https://www.youtube.com/watch?v=usTDm-ZYOBo&list=RDRqwsdR1XSiU&index=3",
+    lesson5:
+      "https://www.youtube.com/watch?v=usTDm-ZYOBo&list=RDRqwsdR1XSiU&index=3",
+    lesson6:
+      "https://www.youtube.com/watch?v=usTDm-ZYOBo&list=RDRqwsdR1XSiU&index=3",
+  },
+  Module2: {
+    introduction:
+      "https://www.youtube.com/embed/usTDm-ZYOBo?si=4ZrCkjCJTumZ92_z",
+    lesson1:
+      "https://www.youtube.com/watch?v=usTDm-ZYOBo&list=RDRqwsdR1XSiU&index=3",
+    lesson2:
+      "https://www.youtube.com/watch?v=usTDm-ZYOBo&list=RDRqwsdR1XSiU&index=3",
+  },
+};
 function playVideo(element) {
   // Remove the active class from all course elements
   const allCourses = document.querySelectorAll(".courses-list p");
   allCourses.forEach((course) => {
     course.classList.remove("active");
   });
-
-  // Add the active class to the clicked course element
   element.classList.add("active");
-
-  // Additional code to play the video can go here
 }
