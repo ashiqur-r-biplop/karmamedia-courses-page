@@ -60,9 +60,11 @@
     cursor: pointer;
     opacity: 0;
 }
-.up-down-icon{
+
+.up-down-icon {
     font-size: 12px;
 }
+
 .courses .courses-list {
     -webkit-box-shadow: 0px 0px 39px -4px rgba(0, 0, 0, 0.36);
     -moz-box-shadow: 0px 0px 39px -4px rgba(0, 0, 0, 0.36);
@@ -87,7 +89,7 @@
     display: flex;
     justify-content: space-between;
     padding-right: 10px;
-
+    color: gray;
 }
 
 .courses .courses-list p i {
