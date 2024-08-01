@@ -31,7 +31,6 @@ const videoPlay = (courseId) => {
   // Hide all video containers and stop any playing video
   const allVideos = document.querySelectorAll(".videos iframe");
   allVideos.forEach((iframe) => {
-    // Pause the YouTube video by changing the src attribute
     const src = iframe.src;
     iframe.src = src; // This reloads the iframe and effectively stops the video
 
@@ -48,24 +47,39 @@ const videoPlay = (courseId) => {
   }
 };
 
-
 function playVideo(element, courseId) {
   // Remove the active class from all course elements
   const allCourses = document.querySelectorAll(".courses-list p");
   allCourses.forEach((course) => {
     course.classList.remove("active");
   });
+
+  // Add the active class to the clicked element
   element.classList.add("active");
+
+  // Play the corresponding video
   videoPlay(courseId);
 }
 
-// open video script
-const videoLink = {
-  Course: {
-    Introduction: {
-      link: "https://youtu.be/rwhPoLseH1g?si=50_dmmgt8jSFSLoL",
-    },
-    HowToGetTheMostValue: "https://youtu.be/wyXa-ZIF1zA?si=ligfXL8n48yST-dL",
-  },
-};
+function nextModule() {
+  // Find the currently active course
+  const currentActive = document.querySelector(".courses-list p.active");
+
+  if (currentActive) {
+    // Get the next sibling element
+    const nextCourse = currentActive.nextElementSibling;
+
+    if (nextCourse) {
+      // Trigger the next course's video
+      const courseId = nextCourse.getAttribute("onclick").split(", ")[1].replace(/'|\)/g, "");
+      playVideo(nextCourse, courseId);
+    } else {
+      console.log("No more modules available.");
+    }
+  } else {
+    console.log("No active module found.");
+  }
+}
+
+// Initial video play (optional, but based on your previous setup)
 videoPlay("coursesIntroduction");
