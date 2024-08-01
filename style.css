@@ -134,4 +134,8 @@
     transition: all .3s ease-in-out;
 }
 
+.videos {
+    display: none;
+}
+
 /* Hide the courses list by default */

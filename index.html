@@ -21,17 +21,17 @@
                             <div class="courses-title">
                                 <p>Course</p>
                                 <div class="up-down-icon">
-                                    <input type="checkbox" class="courses-checkbox">
+                                    <input type="checkbox" id="courses-checkbox">
                                     <span><i class="fa-solid fa-caret-up"></i></span>
                                     <span><i class="fa-solid fa-caret-down"></i></span>
                                 </div>
                             </div>
-                            <div class="courses-list">
-                                <p onclick="playVideo(this)" class="active">
+                            <div class="courses-list" id="courses-list">
+                                <p onclick="playVideo(this , 'coursesIntroduction')" class="active">
                                     <span>Introduction<i class="fa-solid fa-check"></i></span>
                                     <span><i class="fa-solid fa-angle-right"></i></span>
                                 </p>
-                                <p onclick="playVideo(this)">
+                                <p onclick="playVideo(this, 'coursesHowToGetTheMostValue')">
                                     <span>How To Get The Most Value <i class="fa-solid fa-check"></i></span>
                                     <span><i class="fa-solid fa-angle-right"></i></span>
                                 </p>
@@ -157,7 +157,12 @@
                 </div>
                 <div class="playVideo">
                     <div id="video-container">
-
+                        <div class="videos" id="coursesIntroduction">
+                            coursesIntroduction
+                        </div>
+                        <div class="videos" id="coursesHowToGetTheMostValue">
+                            coursesHowToGetTheMostValue
+                        </div>
                     </div>
                 </div>
             </div>

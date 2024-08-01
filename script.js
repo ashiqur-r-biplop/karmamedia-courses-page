@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const checkbox = document.querySelector(".courses-checkbox");
-  const coursesList = document.querySelector(".courses-list");
+  const checkbox = document.getElementById("courses-checkbox");
+  const coursesList = document.getElementById("courses-list");
   const upIcon = document.querySelector(".fa-caret-up");
   const downIcon = document.querySelector(".fa-caret-down");
 
@@ -27,15 +27,30 @@ document.addEventListener("DOMContentLoaded", function () {
     coursesList.style.display = "block";
   }
 });
+const videoPlay = (courseId) => {
+  // Hide all video containers
+  const allVideos = document.querySelectorAll(".videos");
+  allVideos.forEach((video) => {
+    video.style.display = "none";
+  });
 
-function playVideo(element) {
+  // Show the selected video container
+  const openVideoContainer = document.getElementById(courseId);
+  if (openVideoContainer) {
+    openVideoContainer.style.display = "block";
+  } else {
+    console.error(`Element with ID '${courseId}' not found.`);
+  }
+};
+
+function playVideo(element, courseId) {
   // Remove the active class from all course elements
   const allCourses = document.querySelectorAll(".courses-list p");
   allCourses.forEach((course) => {
     course.classList.remove("active");
   });
-
   element.classList.add("active");
+  videoPlay(courseId);
 }
 
 // open video script
@@ -47,3 +62,4 @@ const videoLink = {
     HowToGetTheMostValue: "https://youtu.be/wyXa-ZIF1zA?si=ligfXL8n48yST-dL",
   },
 };
+videoPlay("coursesIntroduction");
