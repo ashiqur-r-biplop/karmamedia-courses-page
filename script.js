@@ -28,10 +28,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 const videoPlay = (courseId) => {
-  // Hide all video containers
-  const allVideos = document.querySelectorAll(".videos");
-  allVideos.forEach((video) => {
-    video.style.display = "none";
+  // Hide all video containers and stop any playing video
+  const allVideos = document.querySelectorAll(".videos iframe");
+  allVideos.forEach((iframe) => {
+    // Pause the YouTube video by changing the src attribute
+    const src = iframe.src;
+    iframe.src = src; // This reloads the iframe and effectively stops the video
+
+    // Hide the video container
+    iframe.parentElement.style.display = "none";
   });
 
   // Show the selected video container
@@ -42,6 +47,7 @@ const videoPlay = (courseId) => {
     console.error(`Element with ID '${courseId}' not found.`);
   }
 };
+
 
 function playVideo(element, courseId) {
   // Remove the active class from all course elements
