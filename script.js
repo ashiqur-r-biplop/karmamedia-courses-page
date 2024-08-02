@@ -5,67 +5,60 @@ document.addEventListener("DOMContentLoaded", function () {
   const downIcon = document.querySelector(".fa-caret-down");
 
   checkbox.addEventListener("change", function () {
-    if (checkbox.checked) {
-      console.log(checkbox.checked);
-      upIcon.style.display = "none";
-      downIcon.style.display = "block";
-      coursesList.style.display = "none";
-    } else {
-      upIcon.style.display = "block";
-      downIcon.style.display = "none";
-      coursesList.style.display = "block";
-    }
+      if (checkbox.checked) {
+          upIcon.style.display = "none";
+          downIcon.style.display = "block";
+          coursesList.style.display = "none";
+      } else {
+          upIcon.style.display = "block";
+          downIcon.style.display = "none";
+          coursesList.style.display = "block";
+      }
   });
 
+  // Ensure the initial state is correctly set based on the checkbox
   if (checkbox.checked) {
-    coursesList.style.display = "block";
-    upIcon.style.display = "none";
-    downIcon.style.display = "block";
+      coursesList.style.display = "none";
+      upIcon.style.display = "none";
+      downIcon.style.display = "block";
   } else {
-    upIcon.style.display = "block";
-    downIcon.style.display = "none";
-    coursesList.style.display = "block";
+      coursesList.style.display = "block";
+      upIcon.style.display = "block";
+      downIcon.style.display = "none";
   }
 });
+
 const videoPlay = (courseId) => {
   // Hide all video containers and stop any playing video
-  const allVideos = document.querySelectorAll(".videos iframe");
-  allVideos.forEach((iframe) => {
-    // Pause the YouTube video by changing the src attribute
-    const src = iframe.src;
-    iframe.src = src; // This reloads the iframe and effectively stops the video
-
-    // Hide the video container
-    iframe.parentElement.style.display = "none";
+  const allVideos = document.querySelectorAll(".videos");
+  allVideos.forEach((video) => {
+      const iframe = video.querySelector("iframe");
+      if (iframe) {
+          const src = iframe.src;
+          iframe.src = "";  // Pause video
+          iframe.src = src; // Reset video source
+      }
+      video.style.display = "none"; // Hide video container
   });
 
   // Show the selected video container
   const openVideoContainer = document.getElementById(courseId);
   if (openVideoContainer) {
-    openVideoContainer.style.display = "block";
+      openVideoContainer.style.display = "block";
   } else {
-    console.error(`Element with ID '${courseId}' not found.`);
+      console.error(`Element with ID '${courseId}' not found.`);
   }
 };
-
 
 function playVideo(element, courseId) {
   // Remove the active class from all course elements
   const allCourses = document.querySelectorAll(".courses-list p");
   allCourses.forEach((course) => {
-    course.classList.remove("active");
+      course.classList.remove("active");
   });
   element.classList.add("active");
   videoPlay(courseId);
 }
 
-// open video script
-const videoLink = {
-  Course: {
-    Introduction: {
-      link: "https://youtu.be/rwhPoLseH1g?si=50_dmmgt8jSFSLoL",
-    },
-    HowToGetTheMostValue: "https://youtu.be/wyXa-ZIF1zA?si=ligfXL8n48yST-dL",
-  },
-};
+// Ensure the first video is shown by default
 videoPlay("coursesIntroduction");
