@@ -135,6 +135,7 @@
 
 .videos {
   display: none;
+  width: 100%;
 }
 
 /* Hide the courses list by default */
@@ -144,10 +145,12 @@
   padding: 50px;
   padding-left: 0;
 }
+
 .moduleOneBtn {
   text-align: end;
   padding: 20px 0;
 }
+
 .video-details button {
   color: #5f5d5d;
   background: #f2f2f2;
@@ -158,18 +161,22 @@
   padding: 10px 25px;
   cursor: pointer;
 }
+
 .video-details {
   border-bottom: 3px solid gray;
   margin-bottom: 20px;
 }
+
 .video-details-title-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .video-details-title-box h2 {
   font-size: 36px;
 }
+
 .video-content-box {
   display: flex;
   flex-direction: column;
@@ -177,6 +184,7 @@
   align-items: start;
   gap: 10px;
 }
+
 .video-content-box a {
   text-decoration: none;
   color: rgb(58, 58, 58);
@@ -190,15 +198,41 @@
   content: "\f19d";
   position: absolute;
 }
+
 .video-content-box a:first-child span {
   border-bottom: 1px solid rgba(58, 58, 58, 0);
   transition: all 0.5s ease-in-out;
 }
+
 .video-content-box a span {
   border-bottom: 1px solid rgba(58, 58, 58, 0);
   transition: all 0.5s ease-in-out;
 }
+
 .video-content-box a span:hover {
   border-bottom: 1px solid rgb(58, 58, 58);
   transition: all 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 550px) {
+  section {}
+
+  .grid-section {
+    grid-template-columns: repeat(1, 1fr);
+
+  }
+
+  .sidebar,
+  .playVideo {
+    grid-column: 1 / span 11;
+  }
+
+  .all-drop-down {
+    padding: 0px 10px;
+  }
+
+  .sidebar,
+  .playVideo {
+    padding: 0px 10px;
+  }
 }
